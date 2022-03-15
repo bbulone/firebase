@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+        integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+        integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="js/script.js"></script>
+    <script src="js/storage_create_ref.js"></script>
+    <link rel="icon" href="img/logo.png" />
+    <title>Portfolio | Bulone Benjamin</title>
+
+
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/9.6.7/firebase-app-compat.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/9.6.7/firebase-auth-compat.js"></script>
+    <script defer src="/__/firebase/9.6.7/firebase-database-compat.js"></script>
+    <script defer src="/__/firebase/9.6.7/firebase-firestore-compat.js"></script>
+    <script defer src="/__/firebase/9.6.7/firebase-functions-compat.js"></script>
+    <script defer src="/__/firebase/9.6.7/firebase-messaging-compat.js"></script>
+    <script defer src="/__/firebase/9.6.7/firebase-storage-compat.js"></script>
+    <script defer src="/__/firebase/9.6.7/firebase-analytics-compat.js"></script>
+    <script defer src="/__/firebase/9.6.7/firebase-remote-config-compat.js"></script>
+    <script defer src="/__/firebase/9.6.7/firebase-performance-compat.js"></script>
+    <!-- 
+        initialize the SDK after all desired features are loaded, set useEmulator to false
+        to avoid connecting the SDK to running emulators.
+    -->
+    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+
+
+
+</head>
+
+<body>
+    <nav>
+        <div class="logo">Benjamin</div>
+        <div class="items">
+            <ul>
+                <li><a href="">Home</a></li>
+                <li><a href="#about">About me</a></li>
+                <li><a href="#contact">Contact me</a></li>
+
+            </ul>
+        </div>
+
+        <div class="linkedin-btn">
+            <a href="https://www.linkedin.com/in/benjamin-bulone-b422671b0/">Linkedin</a>
+        </div>
+
+    </nav>
+    <div id="testmobile">
+        <i class="fas fa-bars" onclick="openNav()"></i>
+        <i class="fas fa-times" id="croix" onclick="closeNav()"></i>
+
+    </div>
+    <div class="nav2">
+        <div class="items">
+            <ul>
+                <li><a href="">Home</a></li>
+                <li><a href="#about">About me</a></li>
+                <li><a href="#contact">Contact me</a></li>
+
+            </ul>
+        </div>
+
+        <div class="linkedin-btn">
+            <a href="https://www.linkedin.com/in/benjamin-bulone-b422671b0/">Linkedin</a>
+        </div>
+
+    </div>
+
+    <div id="cv"></div>
+    <main>
+        <div class="left">
+            <div class="top">
+
+                <div class="test">
+                    <div class="circle2"></div>
+                    <h1>Hi, I'm Bulone <br> Benjamin</h1>
+                </div>
+                <p>I am a passionate Junior web <br>developer</p>
+                <div class="contact-btn">
+                    <a href="">Contact me</a>
+                </div>
+            </div>
+            <div class="icons">
+                <a href="https://github.com/bbulone"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/benjamin-bulone-b422671b0/"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+
+
+        <div class="me"> </div>
+        <div class="circle1"></div>
+
+
+
+
+    </main>
+
+    <div class="wrap">
+        <div class="about" id="about">
+            <h3>About me</h3>
+            <p>Passionate by Web programming, i’m always interested in finding solutions for different IT projects.
+            </p>
+            <p>
+                I always want to learn new frameworks like Symfony or React JS.
+                I also feel at ease with Wordpress.
+
+            </p>
+            <p> I had the opportunity to develop my IT skills during my studies and now, I'm ready to work in web
+                development.</p>
+            <p>For me,the most important thing is to work with good and efficient tools that will improove your
+                productivity </p>
+        </div>
+
+        <div class="list">
+
+
+            <div class="skills">
+                <div id="owl-demo" class="owl-carousel owl-theme">
+                    <div class="item">
+                        <img src="img/js.png">
+                    </div>
+                    <div class="item">
+                        <img src="img/react-native.png">
+                    </div>
+                    <div class="item">
+                        <img src="img/angular.png">
+                    </div>
+                    <div class="item">
+                        <img src="img/github.png">
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <div class="contact" id="contact">
+        <h3>Contact me</h3>
+
+        <form action="">
+            <p>Email</p>
+            <input type="email" name="mail" placeholder="your@emailadress.com">
+            <p>Your message</p>
+            <textarea placeholder="Write your message here" name="message" id="" cols="30" rows="10"></textarea>
+            <input type="submit" value="Send the message">
+        </form>
+    </div>
+
+
+    <footer>
+        <p>Bulone Benjamin &copy; <script>
+                document.write(new Date().getFullYear())
+            </script>
+        </p>
+    </footer>
+
+
+    <style>
+        * {
+
+            cursor: url('img/cur1054.cur'), pointer;
+
+        }
+
+        canvas {
+            width: 100%;
+            height: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</body>
+
+
+
+
+</html>
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const loadEl = document.querySelector('#load');
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+        // // The Firebase SDK is initialized and available here!
+        //
+        // firebase.auth().onAuthStateChanged(user => { });
+        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
+        // firebase.firestore().doc('/foo/bar').get().then(() => { });
+        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
+        // firebase.messaging().requestPermission().then(() => { });
+        firebase.storage().ref('cv.pdf').getDownloadURL().then((link) => {
+            console.log(link);
+            var a = document.createElement('a');
+            var linkText = document.createTextNode("Here is my cv");
+            a.appendChild(linkText);
+            a.href = link;
+            document.getElementById('cv').appendChild(a);
+        });
+
+        // firebase.analytics(); // call to activate
+        // firebase.analytics().logEvent('tutorial_completed');
+        // firebase.performance(); // call to activate
+        //
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+
+
+
+
+    });
+</script>
