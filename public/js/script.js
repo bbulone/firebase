@@ -1,8 +1,14 @@
 var menuMobile = document.getElementById("testmobile");
+import { auth, storage } from "firebase";
+import { initializeApp } from "./firebase-app.js";
+import admin from "firebase-admin";
 
-import { initializeApp } from "firebase-admin/app";
+import { auth as _auth } from "firebaseui";
 
-var serviceAccount = require("portfolio-d55bc-firebase-adminsdk-h98w6-86d99c8552.json");
+import serviceAccount from "portfolio-d55bc-firebase-adminsdk-h98w6-86d99c8552.json";
+
+import firebase from "firebase";
+require("firebase/auth");
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),

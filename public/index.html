@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
         integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="js/script.js"></script>
+
     <script src="js/storage_create_ref.js"></script>
     <link rel="icon" href="img/logo.png" />
     <title>Portfolio | Bulone Benjamin</title>
@@ -36,11 +36,16 @@
     <script defer src="/__/firebase/9.6.7/firebase-analytics-compat.js"></script>
     <script defer src="/__/firebase/9.6.7/firebase-remote-config-compat.js"></script>
     <script defer src="/__/firebase/9.6.7/firebase-performance-compat.js"></script>
+
+
     <!-- 
         initialize the SDK after all desired features are loaded, set useEmulator to false
         to avoid connecting the SDK to running emulators.
     -->
     <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
 
 
 
@@ -54,6 +59,7 @@
                 <li><a href="">Home</a></li>
                 <li><a href="#about">About me</a></li>
                 <li><a href="#contact">Contact me</a></li>
+
 
             </ul>
         </div>
@@ -112,6 +118,11 @@
 
 
     </main>
+    <!-- The surrounding HTML is left untouched by FirebaseUI.
+     Your app may use that space for branding, controls and other customizations.-->
+    <h1>authentification</h1>
+    <div id="firebaseui-auth-container"></div>
+    <div id="loader">Loading...</div>
 
     <div class="wrap">
         <div class="about" id="about">
@@ -199,6 +210,7 @@
 
 
 
+
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const loadEl = document.querySelector('#load');
@@ -224,6 +236,63 @@
         // firebase.performance(); // call to activate
         //
         // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+
+
+        var uiConfig = {
+            callbacks: {
+                signInSuccessWithAuthResult: function (authResult, redirectUrl) {
+                    // User successfully signed in.
+                    // Return type determines whether we continue the redirect automatically
+                    // or whether we leave that to developer to handle.
+                    return true;
+                },
+                uiShown: function () {
+                    // The widget is rendered.
+                    // Hide the loader.
+                    document.getElementById('loader').style.display = 'none';
+                }
+            },
+            // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+            signInFlow: 'popup',
+            signInSuccessUrl: '<url-to-redirect-to-on-success>',
+            signInOptions: [
+                // Leave the lines as is for the providers you want to offer your users.
+                firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+                firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+                firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+                firebase.auth.GithubAuthProvider.PROVIDER_ID,
+                firebase.auth.EmailAuthProvider.PROVIDER_ID,
+                firebase.auth.PhoneAuthProvider.PROVIDER_ID
+            ],
+            // Terms of service url.
+            tosUrl: '<your-tos-url>',
+            // Privacy policy url.
+            privacyPolicyUrl: '<your-privacy-policy-url>'
+        };
+
+
+
+
+        var ui = new firebaseui.auth.AuthUI(firebase.auth());
+        ui.start('#firebaseui-auth-container', {
+            signInOptions: [{
+                provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
+                signInMethod: firebase.auth.EmailAuthProvider.EMAIL_LINK_SIGN_IN_METHOD
+            }],
+            // Other config options...
+        });
+
+        // Is there an email link sign-in?
+        if (ui.isPendingRedirect()) {
+            ui.start('#firebaseui-auth-container', uiConfig);
+        }
+        // This can also be done via:
+        if (firebase.auth().isSignInWithEmailLink(window.location.href)) {
+            ui.start('#firebaseui-auth-container', uiConfig);
+        }
+
+        ui.start('#firebaseui-auth-container', uiConfig);
+
 
 
 
