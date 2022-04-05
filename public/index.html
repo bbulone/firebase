@@ -241,14 +241,19 @@
   </body>
 </html>
 <div id="myTable"></div>
-<input type="text" id="titre" />
-<input type="text" id="description" />
-<input
-  style="width: 100%; height: 100%"
-  type="submit"
-  value="Modifier la competence"
-  id="addCompetence"
-></button>
+
+<div class="formulaire">
+  <p>Ajout compétence</p>
+  <input type="text" id="titre" />
+  <input type="text" id="description" />
+  <input
+   
+    type="submit"
+    value="Modifier la compétence"
+    id="addCompetence"
+  ></button>
+
+</div>
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const loadEl = document.querySelector("#load");
@@ -381,9 +386,6 @@
         titre: titre,
         Description: description,
       };
-      // let setDoc = db
-      //   .collection("projects")
-      //   .set(data);
 
       db.collection("projects").doc("new").set({
         titre: titre,
